@@ -1,0 +1,209 @@
+From fa5805559ad27382ef62110cb23e67d6eb649030 Mon Sep 17 00:00:00 2001
+From: Rex Dieter <rdieter@gmail.com>
+Date: Wed, 29 Nov 2017 14:07:24 -0600
+Subject: [PATCH 5/8] Spelling fixes (BR103255)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Credit to Ville Skyttä <ville.skytta@iki.fi>
+---
+ ChangeLog                       |  4 ++--
+ scripts/desc/xdg-settings.xml   |  2 +-
+ scripts/xdg-desktop-menu.in     |  2 +-
+ scripts/xdg-screensaver.in      |  2 +-
+ tests/README                    |  4 ++--
+ tests/debug/t.extraout          |  2 +-
+ tests/debug/t.interactive       |  2 +-
+ tests/doc_gen.pl                |  2 +-
+ tests/include/testassertions.sh | 10 +++++-----
+ tests/testrun                   |  2 +-
+ 10 files changed, 16 insertions(+), 16 deletions(-)
+
+diff --git a/ChangeLog b/ChangeLog
+index c819efb..292915f 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -541,7 +541,7 @@
+ 
+ 2006-04-24 Kevin Krammer <kevin.krammer@gmx.at>
+     * Applied patch provided by Benedikt Meurer <benedikt.meurer@unix-ag.uni-siegen.de>
+-      to improve the compatability of the Makefile
++      to improve the compatibility of the Makefile
+     * Added --title option to xdg-file-dialog
+     * Applied another path by Benedikt to let xdg-file-dialog use
+       zenity on GNOME and XFCE
+@@ -564,7 +564,7 @@
+       Currently only used in xdg-mime to gather feedback
+ 
+ 2006-04-08 Kevin Krammer <kevin.krammer@gmx.at>
+-    * In case of $BROWSER being not avialable or empty, try a fixed list of well
++    * In case of $BROWSER being not available or empty, try a fixed list of well
+       known browsers instead
+ 
+ 2006-04-06 Kevin Krammer <kevin.krammer@gmx.at>
+diff --git a/scripts/desc/xdg-settings.xml b/scripts/desc/xdg-settings.xml
+index 56055b7..255d712 100644
+--- a/scripts/desc/xdg-settings.xml
++++ b/scripts/desc/xdg-settings.xml
+@@ -114,7 +114,7 @@
+   <refsect1 id="properties">
+     <title>Properties</title>
+     <para>
+-      When using xdg-settings to get, check or set a destkop setting, properties
++      When using xdg-settings to get, check or set a desktop setting, properties
+       and possibly sub-properties are used to specify the setting to be changed.
+     </para>
+     <para>
+diff --git a/scripts/xdg-desktop-menu.in b/scripts/xdg-desktop-menu.in
+index 13159cb..9d837e1 100644
+--- a/scripts/xdg-desktop-menu.in
++++ b/scripts/xdg-desktop-menu.in
+@@ -394,7 +394,7 @@ while [ $# -gt 0 ] ; do
+         case "$parm" in
+            *.directory)
+               if [ -n "$desktop_files" ] ; then
+-                  exit_failure_syntax "'$parm' must preceed any *.desktop file"
++                  exit_failure_syntax "'$parm' must precede any *.desktop file"
+               fi
+               directory_files="$directory_files $parm"
+               ;;
+diff --git a/scripts/xdg-screensaver.in b/scripts/xdg-screensaver.in
+index aecd8e3..9e68196 100644
+--- a/scripts/xdg-screensaver.in
++++ b/scripts/xdg-screensaver.in
+@@ -583,7 +583,7 @@ screensaver_mate_screensaver()
+ {
+ # DBUS interface for mate-screensaver
+ # This is same as gnome's for now but may change in the future as MATE
+-# does not follow gnome's developement necessarily.
++# does not follow gnome's development necessarily.
+     case "$1" in
+         suspend)
+         screensaver_suspend_loop \
+diff --git a/tests/README b/tests/README
+index 26469f2..8ebcfef 100644
+--- a/tests/README
++++ b/tests/README
+@@ -18,7 +18,7 @@ NORESULT: test_system_mime_install
+ See xdg-test.log for details.
+ NOT OK!
+ 
+-FAIL     indicates (not suprisingly) a test failure. 
++FAIL     indicates (not surprisingly) a test failure.
+ NORESULT indicates that the test prerequisites failed for some reason. 
+          (e.g. the install phase of an uninstall test failed)
+ UNTESTED means that something needed was not found. This is fine and should
+@@ -26,7 +26,7 @@ UNTESTED means that something needed was not found. This is fine and should
+          (e.g. test requires root, but we are not running as root)
+ 
+ NOTE: The test runner makes guesses about appropriate values of XDG_TEST_DIR
+-      and PATH. These values can be overriden explicitly.
++      and PATH. These values can be overridden explicitly.
+ 
+ To run tests individually, or as smaller groups do something like
+ 
+diff --git a/tests/debug/t.extraout b/tests/debug/t.extraout
+index ea84b33..4946673 100755
+--- a/tests/debug/t.extraout
++++ b/tests/debug/t.extraout
+@@ -4,7 +4,7 @@
+ . "$XDG_TEST_DIR/include/testcontrol.sh"
+ 
+ test_extraout() {
+-test_start "$FUNCNAME: verify functionallity of assert_nostdout"
++test_start "$FUNCNAME: verify functionality of assert_nostdout"
+ 
+ test_procedure
+ 
+diff --git a/tests/debug/t.interactive b/tests/debug/t.interactive
+index fa203c2..6f6f858 100755
+--- a/tests/debug/t.interactive
++++ b/tests/debug/t.interactive
+@@ -4,7 +4,7 @@
+ . "$XDG_TEST_DIR/include/testcontrol.sh"
+ 
+ test_interactive() {
+-test_start "$FUNCNAME: verify functionallity of assert_interactive"
++test_start "$FUNCNAME: verify functionality of assert_interactive"
+ 
+ test_procedure
+ 
+diff --git a/tests/doc_gen.pl b/tests/doc_gen.pl
+index ed29d94..50d134d 100755
+--- a/tests/doc_gen.pl
++++ b/tests/doc_gen.pl
+@@ -102,7 +102,7 @@ for $f ( @test_files ) {
+ 		}
+ 		#find initilization
+ 		elsif ( m/test_init/ ) {
+-			print HTM "<h2>Depencencies</h2>\n";
++			print HTM "<h2>Dependencies</h2>\n";
+ 			$state = 'INIT';
+ 			next;
+ 		}
+diff --git a/tests/include/testassertions.sh b/tests/include/testassertions.sh
+index 1ba026d..142c0de 100644
+--- a/tests/include/testassertions.sh
++++ b/tests/include/testassertions.sh
+@@ -5,7 +5,7 @@
+ . "$XDG_TEST_DIR/include/testfuncs.sh"
+ 
+ ## NOTE: Documentation is generated AUTOMATICALLY from this file
+-## Function usage must immediately follow function delcaration
++## Function usage must immediately follow function declaration
+ 
+ assert_exit() {
+ # execute command (saving output) and check exit code
+@@ -41,7 +41,7 @@ assert_interactive_notroot() {
+ }
+ 
+ assert_interactive() {
+-# Useage:
++# Usage:
+ # assert_interactive {msg} [y|n|C|s varname]
+ #
+ # msg is the text to print.
+@@ -122,7 +122,7 @@ assert_file_not_in_path() {
+ 
+ 
+ assert_file() {
+-# Assert the existance of an exact filename
++# Assert the existence of an exact filename
+ # Usage: assert_file FILE
+ 	if [ ! -e "$1" ] ; then
+ 		test_fail "'$1' does not exist"
+@@ -140,7 +140,7 @@ assert_file() {
+ }
+ 
+ assert_nofile() {
+-# Assert the non existance of an exact filename.
++# Assert the non existence of an exact filename.
+ # Opposite of 'assert_file'
+ 	if [ -e "$1" ] ; then
+ 		test_fail "'$1' exists."
+@@ -339,7 +339,7 @@ get_unique_name() {
+ 	varname="$1"
+ 	file="$2"
+ 	if [ -z "$varname" ] ; then
+-		echo "TEST SYNAX ERROR: get_unique_name requries a variable name"
++		echo "TEST SYNAX ERROR: get_unique_name requires a variable name"
+ 		exit 255
+ 	fi
+ 
+diff --git a/tests/testrun b/tests/testrun
+index 822fc69..4a9f748 100755
+--- a/tests/testrun
++++ b/tests/testrun
+@@ -123,7 +123,7 @@ if [ -z "$XDG_TEST_SELF_LAUNCH"  ] ; then  # not self launched
+ 		else
+ 			SUCMD=`which sudo 2>/dev/null`
+ 			echo "Running ${SUCMD-su} for system tests."
+-			echo "Please enter an apropriate password if requested."
++			echo "Please enter an appropriate password if requested."
+ 		fi
+ 		# Note if sudo is not found, $SUCMD will be blank, so run su directly.
+ 		# We cannot assume su works since systems like Ubuntu require sudo
+-- 
+2.14.3
+

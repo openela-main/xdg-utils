@@ -1,0 +1,27 @@
+From 13963edddcad55438f03aefd4db1538cc8f68f14 Mon Sep 17 00:00:00 2001
+From: Rex Dieter <rdieter@gmail.com>
+Date: Tue, 27 Feb 2018 15:58:42 -0600
+Subject: [PATCH 8/8] Changelog for prior commit
+
+---
+ ChangeLog | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/ChangeLog b/ChangeLog
+index 964006c..8060d47 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,6 +1,9 @@
+ === xdg-utils 1.1.3 ===
+ 
+-2017-1218
++2018-02-27
++   * xdg-open: Fixes LXQt behavior (BR81674,BR103146)
++
++2017-12-18
+    * xdg-mime awk script syntax error (BR104298)
+ 
+ === xdg-utils 1.1.2 ===
+-- 
+2.14.3
+

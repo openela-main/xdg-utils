@@ -1,0 +1,47 @@
+From afeedb5c932371482b4ffe7b5e98bc1d619f9594 Mon Sep 17 00:00:00 2001
+From: Nicholas Guriev <guriev-ns@ya.ru>
+Date: Sat, 30 Sep 2017 21:34:18 +0300
+Subject: [PATCH 3/8] Fix tests for 1f8e58d51e6fb3f50f59ed2d8265f2f346ac68e6
+
+---
+ autotests/t-xdg-mime-query-default.sh | 2 ++
+ autotests/t-xdg-settings.sh           | 4 ++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/autotests/t-xdg-mime-query-default.sh b/autotests/t-xdg-mime-query-default.sh
+index 66bb8d7..a746b1d 100755
+--- a/autotests/t-xdg-mime-query-default.sh
++++ b/autotests/t-xdg-mime-query-default.sh
+@@ -3,6 +3,8 @@ COMMAND_TESTED="xdg-mime query default"
+ . ./test-lib.sh
+ 
+ test_that_it reads \$XDG_CONFIG_HOME/mimeapps.list
++mock mosaic  # Default app should exist
++mock_desktop_file mosaic
+ mock_default_app x-scheme-handler/http mosaic
+ handler=$(run generic xdg-mime query default x-scheme-handler/http)
+ assert_equal mosaic.desktop "$handler"
+diff --git a/autotests/t-xdg-settings.sh b/autotests/t-xdg-settings.sh
+index 7b697e4..b8255ab 100755
+--- a/autotests/t-xdg-settings.sh
++++ b/autotests/t-xdg-settings.sh
+@@ -12,12 +12,16 @@ assert_run gconftool-2 --get /desktop/gnome/applications/browser/exec
+ for de in gnome3 cinnamon lxde mate generic; do
+     test_that_it determines default browser from \
+                  \$XDG_CONFIG_HOME/mimeapps.list in $de
++    mock mosaic  # Default app should exist
++    mock_desktop_file mosaic
+     mock_default_app x-scheme-handler/http mosaic
+     assert_equal mosaic.desktop \
+                  "$(run $de xdg-settings get default-web-browser)"
+ 
+     test_that_it determines default URL handler from \
+                  \$XDG_CONFIG_HOME/mimeapps.list in $de
++    mock footorrent  # Default app should exist
++    mock_desktop_file footorrent
+     mock_default_app x-scheme-handler/magnet footorrent
+     assert_equal \
+         footorrent.desktop \
+-- 
+2.14.3
+
