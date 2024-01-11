@@ -1,0 +1,24 @@
+From fb9ee8c69932feb716ad4db793a7941dd06b345c Mon Sep 17 00:00:00 2001
+From: Rex Dieter <rdieter@math.unl.edu>
+Date: Mon, 8 May 2017 07:34:29 -0500
+Subject: [PATCH 2/8] init 1.1.3 ChangeLog section
+
+---
+ ChangeLog | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/ChangeLog b/ChangeLog
+index 77e6cef..c819efb 100644
+--- a/ChangeLog
++++ b/ChangeLog
+@@ -1,4 +1,6 @@
+-=== xdg-utils 1.1.2 (unreleased) ===
++=== xdg-utils 1.1.3 ===
++
++=== xdg-utils 1.1.2 ===
+ 
+ 2017-02-28 Rex Dieter <rdieter@fedoraproject.org>
+    * xdg-open: Add "chromium" to fallback browsers (BR99366)
+-- 
+2.14.3
+

@@ -1,0 +1,25 @@
+From 186b6d7839ae8528d845c977fb680a46bd1c6123 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Ville=20Skytt=C3=A4?= <ville.skytta@iki.fi>
+Date: Fri, 13 Oct 2017 11:40:05 +0300
+Subject: [PATCH 4/8] xdg-mime.1: Add missing period
+
+---
+ scripts/desc/xdg-mime.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/scripts/desc/xdg-mime.xml b/scripts/desc/xdg-mime.xml
+index 04d1e17..64bfc85 100644
+--- a/scripts/desc/xdg-mime.xml
++++ b/scripts/desc/xdg-mime.xml
+@@ -119,7 +119,7 @@ and adding descriptions for new file types</refpurpose>
+ 	  </simpara>
+ 	  <simpara>
+ 	    <replaceable>application</replaceable> is the desktop file
+-	    id of the application and has the form vendor-name.desktop
++	    id of the application and has the form vendor-name.desktop.
+ 	    <replaceable>application</replaceable> must already be installed
+ 	    in the desktop menu before it can be made the default handler.
+ 	    The application's desktop file must list support for all the
+-- 
+2.14.3
+
