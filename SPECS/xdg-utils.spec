@@ -2,7 +2,7 @@
 Summary: Basic desktop integration functions 
 Name:    xdg-utils
 Version: 1.1.3
-Release: 11%{?dist}
+Release: 13%{?dist}
 
 URL:     http://portland.freedesktop.org/ 
 %if 0%{?snap:1}
@@ -17,6 +17,8 @@ License: MIT
 
 # upstream patches
 Patch0: xdg-utils-1.1.3-upstream-fixes.patch
+# https://issues.redhat.com/browse/RHEL-87487
+Patch1: xdg-utils-1.1.3-CVE-2022-4055.patch
 
 # make sure BuildArch comes *after* patches, to ensure %%autosetup works right
 # http://bugzilla.redhat.com/1084309
@@ -92,6 +94,12 @@ make install DESTDIR=%{buildroot}
 
 
 %changelog
+* Tue May 13 2025 David King <dking@redhat.com> - 1.1.3-13
+- Update documentation for CVE-2022-4055 (RHEL-87487)
+
+* Fri May 09 2025 David King <dking@redhat.com> - 1.1.3-12
+- Fix CVE-2022-4055 (RHEL-87487)
+
 * Tue Nov 23 2021 David King <amigadave@amigadave.com> - 1.1.3-11
 - Pull in upstream fixes (#1881372)
 
