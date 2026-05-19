@@ -1,7 +1,7 @@
 Summary: Basic desktop integration functions
 Name:    xdg-utils
 Version: 1.2.0
-Release: 3%{?dist}
+Release: 4%{?dist}
 
 URL:     https://www.freedesktop.org/wiki/Software/xdg-utils/
 %if 0%{?snap:1}
@@ -10,6 +10,8 @@ Source0: xdg-utils-%{version}-%{snap}.tar.gz
 Source0:  https://gitlab.freedesktop.org/xdg/%{name}/-/archive/v%{version}/%{name}-v%{version}.tar.gz
 %endif
 License: MIT
+# https://issues.redhat.com/browse/RHEL-65632
+Patch0:  xdg-utils-1.2.0-fix-syntax.patch
 
 # make sure BuildArch comes *after* patches, to ensure %%autosetup works right
 # http://bugzilla.redhat.com/1084309
@@ -85,6 +87,9 @@ make man scripts %{?_smp_mflags} -C scripts
 
 
 %changelog
+* Wed Oct 15 2025 David King <dking@redhat.com> - 1.2.0-4
+- Fix syntax (RHEL-65632)
+
 * Tue Oct 29 2024 Troy Dawson <tdawson@redhat.com> - 1.2.0-3
 - Bump release for October 2024 mass rebuild:
   Resolves: RHEL-64018
